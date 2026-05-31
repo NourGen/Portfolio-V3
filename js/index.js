@@ -24,7 +24,7 @@ for (const link of navLinks) {
 }
 
 if (typedRole) {
-  const roles = ["Markter", "MediaBuyer", "AccountManger "];
+  const roles = ["Digital Markter", "Media Buyer", "Account Manger "];
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
