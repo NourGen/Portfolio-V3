@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Visual Identity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --font-body: "DM Sans", sans-serif;
+      --font-display: "Cormorant Garamond", serif;
+      --primary: #C4783A;
+      --secondary: #D4914E;
+      --accent: #E8B88A;
+      --bg: #1A0E08;
+      --surface: #2A1810;
+      --text: #FAF7F2;
+      --text-heading: #FAF7F2;
+      --muted: #9C7B65;
+      --meta-color: #D4B89A;
+      --list-color: #C8A882;
+      --border: rgba(196, 120, 58, 0.22);
+      --card-bg-top: rgba(42, 24, 16, 0.92);
+      --card-bg-bottom: rgba(34, 18, 8, 0.95);
+      --glow-1: rgba(196, 120, 58, 0.12);
+      --glow-2: rgba(212, 145, 78, 0.15);
+      --bg-end: #0D0704;
+      --radius: 1rem;
+    }
+
+    body.light-mode {
+      --bg: #FAF7F2;
+      --surface: #EDE3D6;
+      --text: #1A0E08;
+      --text-heading: #1A0E08;
+      --muted: #7A5C45;
+      --meta-color: #5C3D28;
+      --list-color: #5C3D28;
+      --border: rgba(196, 120, 58, 0.2);
+      --card-bg-top: rgba(237, 227, 214, 0.95);
+      --card-bg-bottom: rgba(230, 218, 202, 0.98);
+      --glow-1: rgba(196, 120, 58, 0.07);
+      --glow-2: rgba(212, 145, 78, 0.09);
+      --bg-end: #F0E8DA;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(1000px 620px at 10% -10%, var(--glow-1), transparent 60%),
+        radial-gradient(900px 600px at 90% 5%, var(--glow-2), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-end) 100%);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      backdrop-filter: blur(10px);
+      background: rgba(26, 14, 8, 0.82);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease;
+    }
+
+    body.light-mode .topbar {
+      background: rgba(250, 247, 242, 0.88);
+    }
+
+    .topbar-inner {
+      width: min(1020px, 90%);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 3.8rem;
+    }
+
+    .back-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.94rem;
+      transition: color 0.25s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(44, 26, 14, 0.4);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(196, 120, 58, 0.2);
+      border-color: rgba(212, 145, 78, 0.45);
+      transform: rotate(18deg) scale(1.08);
+    }
+
+    body.light-mode .theme-toggle {
+      background: rgba(237, 227, 214, 0.7);
+    }
+
+    /* ── Content ── */
+    .container {
+      width: min(1020px, 90%);
+      margin-inline: auto;
+      padding: 3.25rem 0 4rem;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      line-height: 1.2;
+      color: var(--text-heading);
+      transition: color 0.3s ease;
+    }
+
+    h1 { font-size: clamp(2rem, 1.3rem + 2.8vw, 3.2rem); }
+
+    h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-size: clamp(1.3rem, 1rem + 1.2vw, 1.9rem);
+    }
+
+    p { margin: 0; color: var(--muted); transition: color 0.3s ease; }
+
+    .intro { margin-top: 0.9rem; max-width: 72ch; }
+
+    .card-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 1.1rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card-bg-top) 0%, var(--card-bg-bottom) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .swatch {
+      height: 82px;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 0.75rem;
+    }
+
+    .swatch.primary   { background: #C4783A; }
+    .swatch.secondary { background: #D4914E; }
+    .swatch.accent    { background: #E8B88A; }
+    .swatch.bg        { background: #1A0E08; }
+    .swatch.surface   { background: #2A1810; }
+
+    /* light mode bg/surface swatches flip to show ivory */
+    body.light-mode .swatch.bg      { background: #FAF7F2; border-color: rgba(196,120,58,0.25); }
+    body.light-mode .swatch.surface { background: #EDE3D6; border-color: rgba(196,120,58,0.25); }
+
+    .label {
+      color: var(--text-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .meta {
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+      color: var(--meta-color);
+      transition: color 0.3s ease;
+    }
+
+    .usage {
+      margin-top: 0.35rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .type-card {
+      background: linear-gradient(180deg, var(--card-bg-top) 0%, var(--card-bg-bottom) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-top: 1rem;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .sample-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 1.1rem + 1.1vw, 2rem);
+      color: var(--text-heading);
+    }
+
+    .sample-body {
+      margin-top: 0.75rem;
+      font-family: var(--font-body);
+      color: var(--list-color);
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .token-list {
+      margin-top: 0.9rem;
+      padding-left: 1.1rem;
+      color: var(--list-color);
+      transition: color 0.3s ease;
+    }
+
+    .token-list li + li { margin-top: 0.35rem; }
+
+    .bottom-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .bottom-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="back-link" href="index.html">← Back to Portfolio</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-icon">☀️</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="container">
+    <h1>Portfolio Visual Identity</h1>
+    <p class="intro">
+      This page defines the visual identity of your portfolio: primary and secondary colors, typography choices, and how each token should be used for consistency.
+    </p>
+
+    <h2>Color System</h2>
+    <div class="card-grid">
+      <article class="card">
+        <div class="swatch primary"></div>
+        <p class="label">Primary Color</p>
+        <p class="meta">#C4783A</p>
+        <p class="usage">Use for main CTA buttons, active links, highlights, and focus states.</p>
+      </article>
+      <article class="card">
+        <div class="swatch secondary"></div>
+        <p class="label">Secondary Color</p>
+        <p class="meta">#D4914E</p>
+        <p class="usage">Use for secondary highlights, gradient blends, and decorative accents.</p>
+      </article>
+      <article class="card">
+        <div class="swatch accent"></div>
+        <p class="label">Accent Color</p>
+        <p class="meta">#E8B88A</p>
+        <p class="usage">Use sparingly for hover states, pale highlights, and soft decorative details.</p>
+      </article>
+      <article class="card">
+        <div class="swatch bg"></div>
+        <p class="label">Background Base</p>
+        <p class="meta">#1A0E08 / #FAF7F2</p>
+        <p class="usage">Dark: warm brown-black. Light: warm ivory. Both anchor the BSA identity.</p>
+      </article>
+      <article class="card">
+        <div class="swatch surface"></div>
+        <p class="label">Surface/Card</p>
+        <p class="meta">#2A1810 / #EDE3D6</p>
+        <p class="usage">Use for cards, containers, and panels above the base background.</p>
+      </article>
+    </div>
+
+    <h2>Typography System</h2>
+    <article class="type-card">
+      <h3 class="sample-title">Cormorant Garamond — Display Font (Headings)</h3>
+      <p class="sample-body">
+        DM Sans — Body Font (paragraphs, labels, and navigation). This pairing keeps headings scholarly and refined while preserving readability in long text.
+      </p>
+      <ul class="token-list">
+        <li><strong>Heading font:</strong> Cormorant Garamond (weights 600–700)</li>
+        <li><strong>Body font:</strong> DM Sans (weights 300–500)</li>
+        <li><strong>Text color:</strong> #FAF7F2 on dark / #1A0E08 on light</li>
+        <li><strong>Muted text:</strong> #9C7B65 on dark / #7A5C45 on light</li>
+      </ul>
+    </article>
+
+    <h2>Brand Rule (Quick)</h2>
+    <article class="type-card">
+      <ul class="token-list">
+        <li>Copper (#C4783A) dominates interactive elements — buttons, links, active states.</li>
+        <li>Warm gold (#D4914E) supports visuals but should not overpower primary actions.</li>
+        <li>Keep generous spacing and warm surfaces to preserve the premium BSA look.</li>
+        <li>Never use cold greys or blues — all neutrals stay within the warm brown family.</li>
+      </ul>
+    </article>
+
+    <a class="bottom-link" href="index.html">← Back to Portfolio</a>
+  </main>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const icon = toggle?.querySelector(".theme-icon");
+
+    const applyTheme = (isDark) => {
+      document.body.classList.toggle("light-mode", !isDark);
+      if (icon) icon.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    };
+
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    applyTheme(saved ? saved === "dark" : prefersDark);
+
+    toggle?.addEventListener("click", () => {
+      applyTheme(document.body.classList.contains("light-mode"));
+    });
+  </script>
+
+</body>
+</html>
