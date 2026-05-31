@@ -587,94 +587,6 @@ a {
   transform: translateY(0) scale(1);
 }
 
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(22px, -20px) scale(1.08); }
-}
-
-@keyframes blink-caret {
-  0%, 49% { border-right-color: var(--color-primary); }
-  50%, 100% { border-right-color: transparent; }
-}
-
-@keyframes float-card {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes gradient-flow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@media (max-width: 980px) {
-  .hero-grid,
-  .skills-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero { padding-top: var(--space-8); }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .about-grid p { margin-inline: auto; }
-  .avatar { margin-inline: auto; }
-
-  .hero-glow {
-    width: 260px;
-    opacity: 0.25;
-  }
-}
-
-@media (max-width: 760px) {
-  .menu-btn { display: block; }
-
-  .nav {
-    position: absolute;
-    inset: 4.45rem 0 auto 0;
-    background: rgba(26, 14, 8, 0.98);
-    border-bottom: 1px solid rgba(196, 120, 58, 0.18);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .nav.open { max-height: 320px;}
-
-  .nav-list {
-    flex-direction: column;
-    padding: var(--space-5) 5%;
-    gap: var(--space-4);
-  }
-
-  .section { padding-block: clamp(3.35rem, 7vw, 4.3rem); }
-  .contact-link-card { padding: var(--space-4); }
-
-  .footer-wrap {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 /************************************** v2 *************************/
 /* ── Light mode tokens ── */
 body.light-mode {
@@ -726,8 +638,11 @@ body.light-mode .footer {
   border-top-color: rgba(196, 120, 58, 0.2);
 }
 
-body.light-mode .nav {
+body.light-mode .nav{
   background: #EDE3D6;
+}
+body.light-mode .nav ul{
+  background-color: #FAF6F1;
 }
 
 body.light-mode .menu-btn {
@@ -829,4 +744,95 @@ body.light-mode .theme-toggle {
   background-position: center center;
   background-size: 45%;
   background-blend-mode: overlay;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(22px, -20px) scale(1.08); }
+}
+
+@keyframes blink-caret {
+  0%, 49% { border-right-color: var(--color-primary); }
+  50%, 100% { border-right-color: transparent; }
+}
+
+@keyframes float-card {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (max-width: 980px) {
+  .hero-grid,
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero { padding-top: var(--space-8); }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-grid p { margin-inline: auto; }
+  .avatar { margin-inline: auto; }
+
+  .hero-glow {
+    width: 260px;
+    opacity: 0.25;
+  }
+}
+
+@media (max-width: 760px) {
+  .menu-btn { display: block; }
+
+  .nav {
+    position: absolute;
+    inset: 4.45rem 0 auto 0;
+    background: rgba(26, 14, 8, 0.98);
+    border-bottom: 1px solid rgba(196, 120, 58, 0.18);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav.open { max-height: 320px;}
+body.light-mode .nav ul{
+  background-color: #EDE3D6;
+}
+
+  .nav-list {
+    flex-direction: column;
+    padding: var(--space-5) 5%;
+    gap: var(--space-4);
+  }
+
+  .section { padding-block: clamp(3.35rem, 7vw, 4.3rem); }
+  .contact-link-card { padding: var(--space-4); }
+
+  .footer-wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
