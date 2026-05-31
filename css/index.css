@@ -643,7 +643,7 @@ a {
     transition: max-height 0.3s ease;
   }
 
-  .nav.open { max-height: 320px; }
+  .nav.open { max-height: 320px;}
 
   .nav-list {
     flex-direction: column;
@@ -727,7 +727,7 @@ body.light-mode .footer {
 }
 
 body.light-mode .nav {
-  background: transparent;
+  background: #EDE3D6;
 }
 
 body.light-mode .menu-btn {
